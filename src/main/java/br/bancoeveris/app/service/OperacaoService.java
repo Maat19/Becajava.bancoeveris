@@ -73,6 +73,12 @@ public class OperacaoService {
 			base.message = "Conta não encontrada";
 			return base;
 		}
+		
+		if(operacao.getValor() <= 0.0) {
+			base.statusCode = 400;
+			base.message = "Valor Inválido";
+			return base;
+		}
 
 		operacao.setTipo("S");
 		operacao.setValor(operacaoRequest.getValor());

@@ -29,7 +29,7 @@ public class ContaService {
 		ContaResponse contaResponse = new ContaResponse();
 		contaResponse.statusCode = 400;
 
-		if (contaRequest.getNome().isEmpty()) {
+		if (contaRequest.getNome() == null || contaRequest.getNome() == "") {
 			contaResponse.message = "O Nome do cliente não foi preenchido.";
 			return contaResponse;
 		}
@@ -56,7 +56,7 @@ public class ContaService {
 
 		ContaResponse response = new ContaResponse();
 
-		if (conta.isEmpty()) {
+		if (conta.isEmpty() || id <= 0) {
 			response.statusCode = 400;
 			response.message = "Id não encontrado.";
 			return response;
@@ -93,7 +93,7 @@ public class ContaService {
 		Conta conta = new Conta();
 		response.statusCode = 400;
 
-		if (contaRequest.getNome().isEmpty()) {
+		if (contaRequest.getNome() == null || contaRequest.getNome() == "" ) {
 			response.message = "Novo nome do cliente não foi preenchido.";
 			return response;
 		}
